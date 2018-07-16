@@ -14,10 +14,10 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(actionCreators, dispatch);
 }
 
-// Connect will inject data from store into whatever component you'd like
+// Connect will inject data from store into any component
 const App = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Main); // Immediately call against Main component, add state and actions to props
+)(Main); // Add state and actions to props of Main component
 
 export default App;

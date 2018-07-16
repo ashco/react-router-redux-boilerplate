@@ -2,19 +2,18 @@ import { createStore, compose } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 
-// import root reducer
 import rootReducer from './reducers/index';
 
 import comments from './data/comments';
 import posts from './data/posts';
 
-// create an object for the default data
+// create default state with data
 const defaultState = {
-  posts,
-  comments
+  // stateItem1,
+  // stateItem2,
 };
 
-// Adds ability to use Redux Dev Tools add on
+// Add Redux Dev Tools
 const enhancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : (f) => f
 );
@@ -23,7 +22,7 @@ const store = createStore(rootReducer, defaultState, enhancers);
 
 export const history = syncHistoryWithStore(browserHistory, store);
 
-// Logic to hot reload reducer file changes
+// Hot reload logic for reducer file changes
 if (module.hot) {
   module.hot.accept('./reducers/', () => {
     const nextRootReducer = require('./reducers/index').default;

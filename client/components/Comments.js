@@ -25,14 +25,13 @@ const Comments = React.createClass({
   // Uses refs attr's to find user input
   handleSubmit(e) {
     e.preventDefault();
-    console.log('Submitting the form');
-    // console.log(this.refs);
+
     const { postId } = this.props.params;
     const author = this.refs.author.value;
     const comment = this.refs.comment.value;
 
     this.props.addComment(postId, author, comment);
-    this.refs.commentForm.reset(); // reset method that lives on ALL forms
+    this.refs.commentForm.reset(); // Reset method that lives on ALL forms
   },
 
   render() {
